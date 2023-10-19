@@ -1,24 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import {Container, Grid, Stack, Typography} from "@mui/material";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <Container maxWidth={'1320px'}>
+<Grid container>
+    <Grid item xs={12} sx={{maxWidth:'270px'}}>
+        <Stack><Typography variant={'h1'}>Spaceflight details</Typography> <Typography variant={"body1"}>Find out the elaborate features of all the past big spaceflights.</Typography> </Stack>
+    </Grid>
+</Grid>
+   </Container>
   );
 }
 
