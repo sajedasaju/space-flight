@@ -45,9 +45,6 @@ const Home = () => {
                                 borderBottomRightRadius: '6px',
                             },
 
-
-
-
                         }} />
                 </Grid>
             </Grid>

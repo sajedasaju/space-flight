@@ -1,11 +1,12 @@
 import {AppContext} from "../hooks/AppContextAndProvider";
 import React, {useState} from "react";
-import Home from "../components/Home";
 import defaultTheme from "../layout/defaultTheme";
 import {ThemeProvider} from "@mui/material";
+import Home from "../components/Home";
 
 const App = () => {
     const [products, setProducts] = useState([]);
+    const [queryParams, setQueryParams] = useState([]);
     const [isLoadingProducts, setIsLoadingProducts] = useState(false);
 
     return (
@@ -15,7 +16,9 @@ const App = () => {
                 products,
                 setProducts,
                 isLoadingProducts,
-                setIsLoadingProducts
+                setIsLoadingProducts,
+                queryParams,
+                setQueryParams
             }}>
             <Home />
         </AppContext.Provider>

@@ -2,7 +2,7 @@ export const fetData=async ( setProducts,
                              setIsLoadingProducts)=>{
     try {
         setIsLoadingProducts(true)
-        const response =  await fetch('https://api.spacexdata.com/v3/launches')
+        const response =  await fetch('https://api.spacexdata.com/v3/launches?rocket_name=Falcon%201')
         console.log('response',response)
         if (response) {
             console.log('res',response)
