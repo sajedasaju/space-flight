@@ -4,6 +4,10 @@ import React, {useContext, useEffect, useState} from "react";
 import {AppContext} from "../hooks/AppContextAndProvider";
 import {fetData} from "../services";
 import SearchComponent from "./SearchComponent";
+import UpcomingCheckBox from "./UpcomingCheckBox";
+import {Filter} from "@mui/icons-material";
+import FilterComponent from "./FilterComponent";
+import SearchAndFilterSection from "./SearchAndFilterSection";
 
 const Home = () => {
     const {
@@ -35,7 +39,7 @@ const Home = () => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <SearchComponent />
+                    <SearchAndFilterSection />
                 </Grid>
 
                 <Grid item xs={12}>
