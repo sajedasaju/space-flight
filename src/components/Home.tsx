@@ -1,5 +1,6 @@
 import {Container, Grid, Pagination, Stack, Typography} from "@mui/material";
 import ProductCard from "./ProductCard";
+import React from "react";
 
 const Home = () => {
     return(

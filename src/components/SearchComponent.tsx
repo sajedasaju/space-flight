@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import {alpha, InputBase} from "@mui/material";
+import React from "react";
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchComponent = () => {
-    const Search = styled('div')(({ theme }) => ({
+    const Search = styled('div')(({ theme }:any) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -18,7 +20,7 @@ const SearchComponent = () => {
         },
     }));
 
-    const SearchIconWrapper = styled('div')(({ theme }) => ({
+    const SearchIconWrapper = styled('div')(({ theme }:any) => ({
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
@@ -29,7 +31,7 @@ const SearchComponent = () => {
     }));
 
 
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    const StyledInputBase = styled(InputBase)(({ theme }:any) => ({
         color: 'inherit',
         '& .MuiInputBase-input': {
             padding: theme.spacing(1, 1, 1, 0),
@@ -45,7 +47,7 @@ const SearchComponent = () => {
     return(
         <Search>
             <SearchIconWrapper>
-                <SearchIcon />
+                <SearchIcon color={'primary'} />
             </SearchIconWrapper>
             <StyledInputBase
                 placeholder="Search…"

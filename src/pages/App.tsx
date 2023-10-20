@@ -4,10 +4,11 @@ import defaultTheme from "../layout/defaultTheme";
 import {ThemeProvider} from "@mui/material";
 import Home from "../components/Home";
 
+
 const App = () => {
-    const [products, setProducts] = useState([]);
-    const [queryParams, setQueryParams] = useState([]);
-    const [isLoadingProducts, setIsLoadingProducts] = useState(false);
+    const [products, setProducts] = useState<Array<any>>([]);
+    const [queryParams, setQueryParams] = useState<Array<any>>([]);
+    const [isLoadingProducts, setIsLoadingProducts] = useState<Boolean>(false);
 
     return (
         <ThemeProvider theme={defaultTheme}>

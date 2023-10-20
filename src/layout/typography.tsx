@@ -1,7 +1,7 @@
 
 
 
-export default function typography(CustomFontFamily) {
+export default function typography(CustomFontFamily:any) {
 
     const Fonts= {
         LIGHT :300,
