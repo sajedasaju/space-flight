@@ -1,8 +1,11 @@
 import styled from "@emotion/styled";
-import {alpha, InputBase} from "@mui/material";
+import {alpha, Box, IconButton, InputBase, Paper} from "@mui/material";
+import React from "react";
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchComponent = () => {
-    const Search = styled('div')(({ theme }) => ({
+
+    const Search = styled('div')(({ theme }:any) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -18,7 +21,7 @@ const SearchComponent = () => {
         },
     }));
 
-    const SearchIconWrapper = styled('div')(({ theme }) => ({
+    const SearchIconWrapper = styled('div')(({ theme }:any) => ({
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
@@ -29,7 +32,7 @@ const SearchComponent = () => {
     }));
 
 
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    const StyledInputBase = styled(InputBase)(({ theme }:any) => ({
         color: 'inherit',
         '& .MuiInputBase-input': {
             padding: theme.spacing(1, 1, 1, 0),
@@ -43,15 +46,31 @@ const SearchComponent = () => {
         },
     }));
     return(
-        <Search>
-            <SearchIconWrapper>
+
+        <Box
+            component="form"
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 ,border:'1px solid #CED4DA',borderRadius:'4px'}}
+        >
+            <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Search..."
+                inputProps={{ 'aria-label': 'search...' }}
+            />
+            <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
                 <SearchIcon />
+            </IconButton>
+        </Box>
+
+
+        /*<Search>
+            <SearchIconWrapper>
+                <SearchIcon color={'primary'} />
             </SearchIconWrapper>
             <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
             />
-        </Search>
+        </Search>*/
         )
 
 }
