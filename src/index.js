@@ -1,29 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Home from "./components/Home";
-import {ThemeProvider} from "@mui/material";
-import defaultTheme from "./layout/defaultTheme";
+import App from "./pages/App";
 
 const router=createBrowserRouter([
     {
         path: "",
         element: (
-            <Home />
+            <App />
         ),
     },
 
 ])
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-      <ThemeProvider theme={defaultTheme}>
-          <RouterProvider router={router} />
-      </ThemeProvider>
-  </React.StrictMode>
+
+ReactDOM.render(
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>,
+    document.getElementById('root')
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

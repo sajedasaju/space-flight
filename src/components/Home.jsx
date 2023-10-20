@@ -3,20 +3,14 @@ import ProductCard from "./ProductCard";
 
 const Home = () => {
     return(
-        <Container maxWidth={'xl'} sx={{padding:'0px !important'}}>
+        <Container  sx={{padding:'0px !important',width:{xs:'360px',sm:'834px',md:'834px',lg:'1320px'}}}>
             <Grid container rowSpacing={'64px'} pt={'120px'} pb={'128px'} >
                 <Grid item xs={12} sx={{maxWidth:'270px',textAlign:'center'}}>
                     <Stack><Typography variant={'h1'}>Spaceflight details</Typography> <Typography variant={"body1"}>Find out the elaborate features of all the past big spaceflights.</Typography> </Stack>
                 </Grid>
 
                 <Grid item xs={12}>
-                    <Grid container spacing={'20px'} >
-                        {[...Array(4)].map((_, index) => (
-                            <Grid item xs={12}  sm={6} md={4}>
-                                <ProductCard />
-                            </Grid>
-                        ))}
-                    </Grid>
+                    <ProductCard />
 
                 </Grid>
 
