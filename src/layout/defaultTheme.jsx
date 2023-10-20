@@ -1,10 +1,10 @@
 import {createTheme} from "@mui/material";
 import typography from "./typography";
 
-const CustomFontFamily: any = {
+const CustomFontFamily = {
     fontFamily: ['Barlow','sans-serif', ].join(','),
 };
-const theme = createTheme({
+const defaultTheme = createTheme({
     breakpoints: {
         values: {
             xs: 360,
@@ -20,3 +20,4 @@ const theme = createTheme({
     direction: 'ltr',
     typography: typography(CustomFontFamily.fontFamily),
 });
+export default  defaultTheme;

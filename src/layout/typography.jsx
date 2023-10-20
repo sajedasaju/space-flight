@@ -1,9 +1,16 @@
-import {TypographyOptions} from '@mui/material/styles/createTypography';
-import {Fonts} from "./enums";
 
 
-export default function typography(CustomFontFamily: string) {
-    const customTypography: TypographyOptions = {
+
+export default function typography(CustomFontFamily) {
+
+    const Fonts= {
+        LIGHT :300,
+        REGULAR : 400,
+        MEDIUM : 500,
+        SEMI_BOLD : 600,
+        BOLD : 700,
+    }
+    const customTypography = {
         fontFamily: CustomFontFamily,
         htmlFontSize: 16,
         fontSize: 16,
@@ -35,23 +42,27 @@ export default function typography(CustomFontFamily: string) {
         },
         h5: {
             fontFamily: CustomFontFamily,
-            fontWeight: Fonts.SEMI_BOLD,
-            fontSize: '0.875rem',
+            fontWeight: Fonts.MEDIUM,
+            fontSize: '1.5rem',
+            color:'#212529'
         },
         h6: {
             fontFamily: CustomFontFamily,
-            fontWeight: Fonts.MEDIUM,
-            fontSize: '.25rem',
+            fontWeight: Fonts.REGULAR,
+            fontSize: '0.875rem',
+            color:'#495057'
         },
         subtitle1: {
             fontFamily: CustomFontFamily,
-            fontWeight: Fonts.REGULAR,
-            fontSize: '1.25rem',
+            fontWeight: Fonts.MEDIUM,
+            fontSize: '1rem',
+            color:'#6C757D'
         },
         subtitle2: {
             fontFamily: CustomFontFamily,
-            fontWeight: Fonts.MEDIUM,
+            fontWeight: Fonts.REGULAR,
             fontSize: '1rem',
+            color:'#343A40'
         },
         body1: {
             fontFamily: CustomFontFamily,
@@ -62,8 +73,8 @@ export default function typography(CustomFontFamily: string) {
         body2: {
             fontFamily: CustomFontFamily,
             fontWeight: Fonts.REGULAR,
-            fontSize: '16rem',
-            color:"#343A40"
+            fontSize: '1rem',
+            color:"#6C757D"
         },
         caption: {
             fontFamily: CustomFontFamily,
