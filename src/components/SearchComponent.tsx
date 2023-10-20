@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import {alpha, InputBase} from "@mui/material";
+import {alpha, Box, IconButton, InputBase, Paper} from "@mui/material";
 import React from "react";
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchComponent = () => {
+
     const Search = styled('div')(({ theme }:any) => ({
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
@@ -45,7 +46,23 @@ const SearchComponent = () => {
         },
     }));
     return(
-        <Search>
+
+        <Box
+            component="form"
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 ,border:'1px solid #CED4DA',borderRadius:'4px'}}
+        >
+            <InputBase
+                sx={{ ml: 1, flex: 1 }}
+                placeholder="Search..."
+                inputProps={{ 'aria-label': 'search...' }}
+            />
+            <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+                <SearchIcon />
+            </IconButton>
+        </Box>
+
+
+        /*<Search>
             <SearchIconWrapper>
                 <SearchIcon color={'primary'} />
             </SearchIconWrapper>
@@ -53,7 +70,7 @@ const SearchComponent = () => {
                 placeholder="Search…"
                 inputProps={{ 'aria-label': 'search' }}
             />
-        </Search>
+        </Search>*/
         )
 
 }

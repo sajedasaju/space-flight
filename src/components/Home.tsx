@@ -1,8 +1,32 @@
 import {Container, Grid, Pagination, Stack, Typography} from "@mui/material";
 import ProductCard from "./ProductCard";
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {AppContext} from "../hooks/AppContextAndProvider";
+import {fetData} from "../services";
+import SearchComponent from "./SearchComponent";
 
 const Home = () => {
+    const {
+        searchParams,
+        setSearchParams,
+        setProducts,
+        products,
+        setIsLoadingProducts,
+    } = useContext(AppContext) as any;
+    const [page,setPage]=useState(Number(searchParams.get('offset')) || 1)
+
+    const handlePageChange = (
+        event: React.ChangeEvent<unknown>, value: number
+    ) => {
+        setSearchParams({...searchParams,offset: value});
+        setPage(value);
+    };
+
+    useEffect( () => {
+        fetData(setProducts,setIsLoadingProducts,searchParams)
+    }, [searchParams]);
+
+
     return(
         <Container  sx={{padding:'0px !important',width:{xs:'360px',sm:'834px',md:'834px',lg:'1320px'}}}>
             <Grid container rowSpacing={'64px'} pt={'120px'} pb={'128px'} >
@@ -11,12 +35,21 @@ const Home = () => {
                 </Grid>
 
                 <Grid item xs={12}>
+                    <SearchComponent />
+                </Grid>
+
+                <Grid item xs={12}>
                     <ProductCard />
 
                 </Grid>
 
                 <Grid item xs={12} sx={{display:'flex',justifyContent:'center'}} >
-                        <Pagination count={10} variant="outlined" shape="rounded" sx={{
+                        <Pagination
+                                    boundaryCount={6}
+                                    onChange={handlePageChange}
+                                    count={products?.length}
+                                    defaultPage={page}
+                                    variant="outlined" shape="rounded" sx={{
                             '& .MuiPaginationItem-root': {
                                 backgroundColor: '#FFFFFF',
                                 color: '#0d6efd',
@@ -30,10 +63,6 @@ const Home = () => {
                                     backgroundColor: '#0d6efd',
                                     color: '#FFFFFF',
                                 },
-                                '& .MuiPaginationItem-root.Mui-selected:hover': {
-                                    backgroundColor: 'transparent',
-                                },
-
 
                             },
 

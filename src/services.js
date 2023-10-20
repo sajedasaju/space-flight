@@ -1,8 +1,19 @@
 export const fetData=async ( setProducts,
-                             setIsLoadingProducts)=>{
+                             setIsLoadingProducts,searchParams)=>{
+
+
     try {
         setIsLoadingProducts(true)
-        const response =  await fetch('https://api.spacexdata.com/v3/launches?rocket_name=Falcon%201')
+        let queryList =[...searchParams];
+        const query = queryList?.map(pair => pair.join('=')).join('&');
+
+        let url="https://api.spacexdata.com/v3/launches?limit=9";
+        if(query){
+            url=`https://api.spacexdata.com/v3/launches?limit=9&${query}`
+        }
+
+        const response =  await fetch(url)
+            // ?rocket_name=Falcon%201&limit=2&offset=2
         console.log('response',response)
         if (response) {
             console.log('res',response)

@@ -3,13 +3,13 @@ import React, {useState} from "react";
 import defaultTheme from "../layout/defaultTheme";
 import {ThemeProvider} from "@mui/material";
 import Home from "../components/Home";
+import {useSearchParams} from "react-router-dom";
 
 
 const App = () => {
     const [products, setProducts] = useState<Array<any>>([]);
-    const [queryParams, setQueryParams] = useState<Array<any>>([]);
     const [isLoadingProducts, setIsLoadingProducts] = useState<Boolean>(false);
-
+    const [searchParams, setSearchParams] = useSearchParams();
     return (
         <ThemeProvider theme={defaultTheme}>
         <AppContext.Provider
@@ -18,8 +18,9 @@ const App = () => {
                 setProducts,
                 isLoadingProducts,
                 setIsLoadingProducts,
-                queryParams,
-                setQueryParams
+                searchParams,
+                setSearchParams,
+
             }}>
             <Home />
         </AppContext.Provider>

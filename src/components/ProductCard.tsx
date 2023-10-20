@@ -1,22 +1,15 @@
 import {Box, Chip, CircularProgress, Grid, Skeleton, Stack, Typography} from "@mui/material";
-import React, {useContext, useEffect} from "react";
+import React, {useContext} from "react";
 import {AppContext} from "../hooks/AppContextAndProvider";
-import {fetData} from "../services";
 
 const ProductCard = () => {
 
     const {
-        setProducts,
         products,
         isLoadingProducts,
-        setIsLoadingProducts
     } = useContext(AppContext) as any;
 
 
-    useEffect( () => {
-        fetData(setProducts,setIsLoadingProducts)
-    }, []);
-    console.log('products',products.length)
 
     return (
         <Grid container spacing={'20px'} >
