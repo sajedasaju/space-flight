@@ -19,16 +19,26 @@ const Home = () => {
     } = useContext(AppContext) as any;
     const [page,setPage]=useState(Number(searchParams.get('offset')) || 1)
 
+
     const handlePageChange = (
         event: React.ChangeEvent<unknown>, value: number
     ) => {
-        setSearchParams({...searchParams,offset: value});
+        let currentSearchParams = new URLSearchParams(searchParams.toString());
+            currentSearchParams.set('offset',`${value}`)
+        setSearchParams(currentSearchParams.toString());
         setPage(value);
     };
 
     useEffect( () => {
+
         fetData(setProducts,setIsLoadingProducts,searchParams)
     }, [searchParams]);
+
+    /*const pageCount =
+       products.length > 0
+            ? Math.ceil(products.length / 9)
+            : 0;*/
+
 
 
     return(
@@ -47,13 +57,13 @@ const Home = () => {
 
                 </Grid>
 
-                <Grid item xs={12} sx={{display:'flex',justifyContent:'center'}} >
+                {
+                    products &&  products.length>0 &&   <Grid item xs={12} sx={{display:'flex',justifyContent:'center'}} >
                         <Pagination
-                                    boundaryCount={6}
-                                    onChange={handlePageChange}
-                                    count={products?.length}
-                                    defaultPage={page}
-                                    variant="outlined" shape="rounded" sx={{
+                            onChange={handlePageChange}
+                            count={products.length}
+                            defaultPage={page}
+                            variant="outlined" shape="rounded" sx={{
                             '& .MuiPaginationItem-root': {
                                 backgroundColor: '#FFFFFF',
                                 color: '#0d6efd',
@@ -80,7 +90,9 @@ const Home = () => {
                             },
 
                         }} />
-                </Grid>
+                    </Grid>
+                }
+
             </Grid>
         </Container>
     )
