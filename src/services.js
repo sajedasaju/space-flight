@@ -9,9 +9,9 @@ export const fetData=async ( setProducts,
         console.log('from service',searchParams,queryList)
         const query = queryList?.map(pair => pair.join('=')).join('&');
 
-        let url="https://api.spacexdata.com/v3/launches?limit=9";
+        let url="https://api.spacexdata.com/v3/launches?limit=200";
         if(query){
-            url=`https://api.spacexdata.com/v3/launches?limit=9&${query}`
+            url=`https://api.spacexdata.com/v3/launches?limit=200&${query}`
         }
 
         const response =  await fetch(url)

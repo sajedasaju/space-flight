@@ -1,5 +1,5 @@
 import {FormControl, MenuItem, Select, SelectChangeEvent, Stack, Typography} from "@mui/material";
-import React, {useContext, useState} from "react";
+import React, {useCallback, useContext, useState} from "react";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {AppContext} from "../hooks/AppContextAndProvider";
 
@@ -19,6 +19,8 @@ const FilterComponent = () => {
     const {
         searchParams,
         setSearchParams,
+        products,
+        setProducts,
     } = useContext(AppContext) as any;
     const [launchStatus, setLaunchStatus] = useState<string>('');
     const [launchDate, setLaunchDate] =useState<string>('');
@@ -34,9 +36,31 @@ const FilterComponent = () => {
         setSearchParams(currentSearchParams.toString());
 
     };
-  const handleLaunchDateChange = (event: SelectChangeEvent) => {
-      setLaunchDate(event.target.value as string);
-    };
+
+    const handleLaunchDateChange = useCallback((event: SelectChangeEvent) => {
+        setLaunchDate(event.target.value as string);
+
+        const currentDate = new Date();
+        const startDate = new Date(currentDate);
+        const endDate = new Date(currentDate);
+
+        if (event.target.value === "Last Year") {
+            startDate.setFullYear(currentDate.getFullYear() - 3);
+        } else if (event.target.value === "Last Month") {
+            startDate.setMonth(currentDate.getMonth() - 1);
+        } else if (event.target.value === "Last Week") {
+            startDate.setDate(currentDate.getDate() - 7);
+        }
+
+
+        const filteredDataAcordingDate = products.filter((item: any) => {
+            const launchDate = new Date(item.launch_date_utc);
+            return launchDate >= startDate && launchDate <= endDate;
+        });
+        setProducts(filteredDataAcordingDate)
+
+    }, [launchDate, products]);
+
 
     const FilterByWeekOrStatus=({handleOptionClick,placeholder,options,selectedValue}:IFilterByWeekOrStatusProps)=>{
         return(

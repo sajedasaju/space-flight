@@ -47,7 +47,7 @@ const ProductCard = () => {
                                     <Typography variant={'h5'} mb={'4px'}>{product?.mission_name}</Typography>
                                     <Typography variant={'h6'} mb={'32px'}>{product?.rocket?.rocket_name}</Typography>
                                     <Typography variant={'subtitle1'} mb={'8px'}>Launch Status:</Typography>
-                                    <Chip label={product?.launch_success? "success":"failed"} color={product?.launch_success? "success":"error"} />
+                                    <Chip label={product?.launch_success? "success":"failed"} color={product?.launch_success? "success":"error"} sx={{borderRadius:'4px',padding:'4px 7px'}} />
 
                                 </Box>
                             </Grid>
