@@ -1,6 +1,6 @@
 import {Box, Chip, Grid, Skeleton, Stack, Typography} from "@mui/material";
 import React, {useContext} from "react";
-import {AppContext} from "../hooks/AppContextAndProvider";
+import {AppContext} from "../hooksAndContext/AppContextAndProvider";
 
 const ProductCard = () => {
 

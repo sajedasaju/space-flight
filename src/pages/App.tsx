@@ -1,4 +1,4 @@
-import {AppContext} from "../hooks/AppContextAndProvider";
+import {AppContext} from "../hooksAndContext/AppContextAndProvider";
 import React, {useState} from "react";
 import defaultTheme from "../layout/defaultTheme";
 import {ThemeProvider} from "@mui/material";

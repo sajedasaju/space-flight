@@ -1,7 +1,7 @@
 import {Box, IconButton, InputBase} from "@mui/material";
 import React, {useContext} from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import {AppContext} from "../hooks/AppContextAndProvider";
+import {AppContext} from "../hooksAndContext/AppContextAndProvider";
 
 const SearchComponent = () => {
     const {

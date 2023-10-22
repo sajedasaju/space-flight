@@ -1,6 +1,6 @@
 import {Checkbox, FormControlLabel, Typography} from "@mui/material";
 import React, {useContext} from "react";
-import {AppContext} from "../hooks/AppContextAndProvider";
+import {AppContext} from "../hooksAndContext/AppContextAndProvider";
 
 const UpcomingCheckBox = () => {
     const {

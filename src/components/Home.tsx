@@ -1,7 +1,7 @@
 import {Container, Grid, Pagination, Stack, Typography} from "@mui/material";
 import ProductCard from "./ProductCard";
 import React, {useContext, useEffect, useState} from "react";
-import {AppContext} from "../hooks/AppContextAndProvider";
+import {AppContext} from "../hooksAndContext/AppContextAndProvider";
 import {fetData} from "../services";
 import SearchAndFilterSection from "./SearchAndFilterSection";
 
