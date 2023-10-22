@@ -1,8 +1,9 @@
-import {Box, Stack} from "@mui/material";
+
 import React from "react";
 import SearchComponent from "./SearchComponent";
 import UpcomingCheckBox from "./UpcomingCheckBox";
 import FilterComponent from "./FilterComponent";
+import {Box, Stack} from "@mui/material";
 
 const SearchAndFilterSection = () => {
     return(

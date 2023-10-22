@@ -22,7 +22,8 @@ const SearchComponent = () => {
     return(
         <Box
             component="form"
-            sx={{ display: 'flex',py:'7px', alignItems: 'center', width:'424px' ,height:'38px',border:'1px solid #CED4DA',borderRadius:'4px'}}
+            className={'display-flex'}
+            sx={{ py:'7px', width:'424px' ,height:'38px',border:'1px solid #CED4DA',borderRadius:'4px'}}
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}

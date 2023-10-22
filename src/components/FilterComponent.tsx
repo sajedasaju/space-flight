@@ -73,7 +73,7 @@ const FilterComponent = () => {
                     IconComponent={()=> <KeyboardArrowDownIcon sx={{fontSize:'20px',mr:'7px'}} />}
                 >
                     <MenuItem disabled value="" sx={{display:'none'}}>
-                        <Typography variant={"body1"} color={'#6C757D'} >{placeholder}</Typography>
+                        <Typography variant={"body1"} color={'var(--gray-600)'} >{placeholder}</Typography>
                     </MenuItem>
                     {options.map((item:IOptions,index:number) => (
                         <MenuItem

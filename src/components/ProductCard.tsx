@@ -1,4 +1,4 @@
-import {Box, Chip, CircularProgress, Grid, Skeleton, Stack, Typography} from "@mui/material";
+import {Box, Chip, Grid, Skeleton, Stack, Typography} from "@mui/material";
 import React, {useContext} from "react";
 import {AppContext} from "../hooks/AppContextAndProvider";
 
@@ -38,7 +38,7 @@ const ProductCard = () => {
                                         alt="image1"
                                         src={product?.links?.mission_patch_small}
                                     />
-                                    <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}><Typography variant={'body2'} >
+                                    <Stack direction={'row'} className={'display-flex'}><Typography variant={'body2'} >
                                         Launch Date:
                                     </Typography>
                                         <Typography variant={'subtitle2'}>25 Feb, 2006</Typography>
