@@ -9,7 +9,7 @@
       "*": ["*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "bundler",
     "target": "es2015",
 

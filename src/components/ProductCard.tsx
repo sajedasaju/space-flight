@@ -11,7 +11,7 @@ const ProductCard = () => {
 
 
     return (
-        <Grid container spacing={'20px'} className="my-flex-class" >
+        <Grid container spacing={'20px'} >
             {
                 isLoadingProducts ?  <>{[...Array(4)].map((_, index) => (
                         <Grid item xs={12}  sm={6} md={6} lg={4} key={index} >
@@ -38,7 +38,7 @@ const ProductCard = () => {
                                         alt="image1"
                                         src={product?.links?.mission_patch_small}
                                     />
-                                    <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}><Typography variant={'body2'} >
+                                    <Stack direction={'row'} className={'display-flex'}><Typography variant={'body2'} >
                                         Launch Date:
                                     </Typography>
                                         <Typography variant={'subtitle2'}>25 Feb, 2006</Typography>

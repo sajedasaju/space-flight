@@ -1,4 +1,44 @@
-.my-flex-class {
+
+
+:root {
+  --black: #000;
+  --success: #198754;
+  --error: #DC3545;
+  --gray-600: #6C757D;
+  --gray-700: #495057;
+  --gray-800: #343A40;
+  --gray-900: #212529;
+}
+
+
+.display-flex {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.my-pagination-style {
+  & .MuiPaginationItem-root {
+    background-color: #FFFFFF;
+    color: #0d6efd;
+    border: 1px solid #DEE2E6;
+    border-radius: 0px;
+    height: 31px;
+    width: 26px;
+    margin: 0px;
+
+    &.Mui-selected {
+      background-color: #0d6efd;
+      color: #FFFFFF;
+    }
+  }
+
+  & [aria-label^="Go to previous page"] {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  & [aria-label^="Go to next page"] {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
 }
