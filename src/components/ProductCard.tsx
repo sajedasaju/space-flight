@@ -10,18 +10,17 @@ const ProductCard = () => {
     } = useContext(AppContext) as any;
 
 
-
     return (
         <Grid container spacing={'20px'} >
             {
-                isLoadingProducts ?  <CircularProgress />
-                    : (!isLoadingProducts && products &&  products.length ==0) ? <>
-                        {[...Array(4)].map((_, index) => (
-                            <Grid item xs={12}  sm={6} md={6} lg={4} key={index} >
-                                <Skeleton variant='rectangular' width={'360px'} height={'329px'} />
+                isLoadingProducts ?  <>{[...Array(4)].map((_, index) => (
+                        <Grid item xs={12}  sm={6} md={6} lg={4} key={index} >
+                            <Skeleton variant='rectangular' width={'360px'} height={'329px'} />
 
-                            </Grid>
-                        ))}
+                        </Grid>
+                    ))}</>
+                    : (!isLoadingProducts && products &&  products.length <=0) ? <>
+                       <Typography variant={'h4'}>No data found</Typography>
                     </> : <>
                         {products?.map((product:any, index:number) => (
                             <Grid item xs={12}  sm={6} md={6} lg={4} key={index} >
@@ -48,7 +47,7 @@ const ProductCard = () => {
                                     <Typography variant={'h5'} mb={'4px'}>{product?.mission_name}</Typography>
                                     <Typography variant={'h6'} mb={'32px'}>{product?.rocket?.rocket_name}</Typography>
                                     <Typography variant={'subtitle1'} mb={'8px'}>Launch Status:</Typography>
-                                    <Chip label={product?.launch_success? "success":"failed"} color={product?.launch_success? "success":"error"} />
+                                    <Chip label={product?.launch_success? "success":"failed"} color={product?.launch_success? "success":"error"} sx={{borderRadius:'4px',padding:'4px 7px'}} />
 
                                 </Box>
                             </Grid>

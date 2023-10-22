@@ -1,76 +1,40 @@
-import styled from "@emotion/styled";
-import {alpha, Box, IconButton, InputBase, Paper} from "@mui/material";
-import React from "react";
+import {Box, IconButton, InputBase} from "@mui/material";
+import React, {useContext} from "react";
 import SearchIcon from '@mui/icons-material/Search';
+import {AppContext} from "../hooks/AppContextAndProvider";
 
 const SearchComponent = () => {
+    const {
+        searchParams,
+        setSearchParams,
+    } = useContext(AppContext) as any;
+    const handleSearch=(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{
+        let currentSearchParams = new URLSearchParams(searchParams.toString());
+        if (event.target.value === '') {
+            currentSearchParams.delete('rocket_name');
+        } else {
+            currentSearchParams.set('rocket_name', event.target.value);
+        }
+        setSearchParams(currentSearchParams.toString());
 
-    const Search = styled('div')(({ theme }:any) => ({
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: alpha(theme.palette.common.white, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-        },
-    }));
+    }
 
-    const SearchIconWrapper = styled('div')(({ theme }:any) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }));
-
-
-    const StyledInputBase = styled(InputBase)(({ theme }:any) => ({
-        color: 'inherit',
-        '& .MuiInputBase-input': {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-            transition: theme.transitions.create('width'),
-            width: '100%',
-            [theme.breakpoints.up('md')]: {
-                width: '20ch',
-            },
-        },
-    }));
     return(
-
         <Box
             component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 ,border:'1px solid #CED4DA',borderRadius:'4px'}}
+            sx={{ display: 'flex',py:'7px', alignItems: 'center', width:'424px' ,height:'38px',border:'1px solid #CED4DA',borderRadius:'4px'}}
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Search..."
                 inputProps={{ 'aria-label': 'search...' }}
+                onChange={handleSearch}
             />
-            <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-                <SearchIcon />
+            <IconButton type="button"  aria-label="search"  sx={{height:'54px',width:'42px',backgroundColor:'#0D6EFD',borderRadius:0,borderTopRightRadius:'4px',borderBottomRightRadius:'4px'}}>
+                <SearchIcon sx={{color:'white',fontSize:'16px'}}  />
             </IconButton>
         </Box>
 
-
-        /*<Search>
-            <SearchIconWrapper>
-                <SearchIcon color={'primary'} />
-            </SearchIconWrapper>
-            <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-            />
-        </Search>*/
         )
 
 }

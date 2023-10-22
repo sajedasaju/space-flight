@@ -11,7 +11,7 @@ const defaultTheme = createTheme({
             sm: 720,
             md: 900,
             lg: 1250,
-            xl: 1320,
+            xl: 1920,
         },
     },
     shape: {
