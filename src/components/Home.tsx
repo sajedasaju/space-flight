@@ -17,7 +17,7 @@ const Home = () => {
         products,
         setIsLoadingProducts,
     } = useContext(AppContext) as any;
-    const [page,setPage]=useState(Number(searchParams.get('offset')) || 1)
+    const [page,setPage]=useState<number>(Number(searchParams.get('offset')) || 1)
 
 
     const handlePageChange = (
