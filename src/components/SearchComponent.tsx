@@ -23,7 +23,7 @@ const SearchComponent = () => {
         <Box
             component="form"
             className={'display-flex'}
-            sx={{ py:'7px', width:'424px' ,height:'38px',border:'1px solid #CED4DA',borderRadius:'4px'}}
+            sx={{ py:'7px', width:{xs:'inherit',sm:'424px'} ,height:'38px',border:'1px solid #CED4DA',borderRadius:'4px',mt:'9px'}}
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}

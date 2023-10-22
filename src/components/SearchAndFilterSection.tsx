@@ -7,9 +7,9 @@ import {Box, Stack} from "@mui/material";
 
 const SearchAndFilterSection = () => {
     return(
-        <Stack direction={{sm:'column',md:'row'}} justifyContent={'space-between'}>
+        <Stack direction={{xs:'column',sm:'row'}} justifyContent={'space-between'}>
             <SearchComponent />
-            <Box textAlign={{sm: 'start', md: 'end'}}>
+            <Box textAlign={{xs: 'start', sm: 'end'}}>
                 <UpcomingCheckBox />
                 <FilterComponent />
             </Box>

@@ -8,6 +8,16 @@ const ProductCard = () => {
         products,
         isLoadingProducts,
     } = useContext(AppContext) as any;
+    let formattedDate:any;
+    const getFormattedDate=(item:any)=>{
+        formattedDate = new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+        }).format(item);
+        return formattedDate
+    }
+
 
 
     return (
@@ -41,7 +51,7 @@ const ProductCard = () => {
                                     <Stack direction={'row'} className={'display-flex'}><Typography variant={'body2'} >
                                         Launch Date:
                                     </Typography>
-                                        <Typography variant={'subtitle2'}>25 Feb, 2006</Typography>
+                                        <Typography variant={'subtitle2'}>{getFormattedDate(products?.launch_date_utc)}</Typography>
                                     </Stack>
 
                                     <Typography variant={'h5'} mb={'4px'}>{product?.mission_name}</Typography>
