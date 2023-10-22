@@ -11,7 +11,7 @@ const ProductCard = () => {
 
 
     return (
-        <Grid container spacing={'20px'} >
+        <Grid container spacing={'20px'} className="my-flex-class" >
             {
                 isLoadingProducts ?  <>{[...Array(4)].map((_, index) => (
                         <Grid item xs={12}  sm={6} md={6} lg={4} key={index} >
